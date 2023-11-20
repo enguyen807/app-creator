@@ -1,5 +1,8 @@
 <template>
-  <button type="button" :class="classes" @click="onClick" :style="style">{{ label }} </button>
+  <button type="button" :class="classes" @click="onClick" :style="style">
+    <font-awesome-icon icon="user" size="sm"/>
+    {{ label }} 
+  </button>
 </template>
 
 <script lang="ts" setup>
@@ -11,10 +14,10 @@ const props = withDefaults(defineProps<{
    * The label of the button
    */
   label: string,
-  /**
-   * primary or secondary button
+    /**
+   * size of the button
    */
-  primary?: boolean,
+   rounded?: boolean,
   /**
    * size of the button
    */
@@ -22,9 +25,9 @@ const props = withDefaults(defineProps<{
   /**
    * background color of the button
    */
-  backgroundColor?: string,
+  backgroundColor?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning',
 
-}>(), { primary: false });
+}>(), { backgroundColor: 'primary' });
 
 const emit = defineEmits<{
   (e: 'click', id: number): void;
@@ -32,13 +35,9 @@ const emit = defineEmits<{
 
 const classes = computed(() => ({
   'storybook-button': true,
-  'storybook-button--primary': props.primary,
-  'storybook-button--secondary': !props.primary,
-  [`storybook-button--${props.size || 'medium'}`]: true,
-}));
-
-const style = computed(() => ({
-  backgroundColor: props.backgroundColor
+  'storybook-button--rounded': props.rounded,
+  [`storybook-button--${props.backgroundColor || 'primary'}`]: true,
+  [`storybook-button--${props.size || 'large'}`]: true,
 }));
 
 const onClick = () => {

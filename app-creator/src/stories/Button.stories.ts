@@ -9,11 +9,12 @@ const meta = {
   // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/vue/writing-docs/autodocs
   tags: ['autodocs'],
   argTypes: {
+    rounded: { control: 'boolean' },
     size: { control: 'select', options: ['small', 'medium', 'large'] },
-    backgroundColor: { control: 'color' },
+    backgroundColor: { control: 'select', options: ['primary', 'secondary', 'success', 'danger', 'warning'] },
     onClick: { action: 'clicked' },
   },
-  args: { primary: false }, // default value
+  args: { backgroundColor: 'primary' }, // default value
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -23,19 +24,6 @@ type Story = StoryObj<typeof meta>;
  * See https://storybook.js.org/docs/vue/api/csf
  * to learn how to use render functions.
  */
-export const Primary: Story = {
-  args: {
-    primary: true,
-    label: 'Button',
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    primary: false,
-    label: 'Button',
-  },
-};
 
 export const Large: Story = {
   args: {
@@ -48,5 +36,12 @@ export const Small: Story = {
   args: {
     label: 'Button',
     size: 'small',
+  },
+};
+
+export const Primary: Story = {
+  args: {
+    label: 'Button',
+    backgroundColor: 'primary',
   },
 };

@@ -1,30 +1,41 @@
+@import '../../assets/main.css';
+
 .storybook-button {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  border: 0;
-  border-radius: 3em;
-  cursor: pointer;
-  display: inline-block;
-  line-height: 1;
+  @apply shadow-md;
 }
-.storybook-button--primary {
-  color: white;
-  background-color: #1ea7fd;
+
+.storybook-button--rounded {
+  @apply rounded-md;
 }
-.storybook-button--secondary {
-  color: #333;
-  background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-}
-.storybook-button--small {
-  font-size: 12px;
-  padding: 10px 16px;
-}
-.storybook-button--medium {
-  font-size: 14px;
-  padding: 11px 20px;
-}
+
 .storybook-button--large {
-  font-size: 16px;
-  padding: 12px 24px;
+  @apply h-12 px-6 text-lg;
+}
+
+.storybook-button--medium {
+  @apply h-10 px-5 text-base;
+}
+
+.storybook-button--small {
+  @apply h-8 px-4 text-sm;
+}
+
+.storybook-button--primary {
+  @apply bg-blue-500 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+}
+
+.storybook-button--secondary {
+  @apply bg-stone-500 text-white hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-400 focus:ring-opacity-75;
+}
+
+.storybook-button--success {
+  @apply bg-emerald-500 text-white hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-opacity-75;
+}
+
+.storybook-button--danger {
+  @apply bg-red-500 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75;
+}
+
+.storybook-button--warning {
+  @apply bg-amber-500 text-white hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-opacity-75;
 }
