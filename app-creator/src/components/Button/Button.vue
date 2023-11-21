@@ -1,6 +1,6 @@
 <template>
   <button type="button" :class="classes" @click="onClick" :style="style">
-    <font-awesome-icon icon="user" size="sm"/>
+    <font-awesome-icon :icon="iconName" v-if="iconName"/>
     {{ label }} 
   </button>
 </template>
@@ -14,10 +14,14 @@ const props = withDefaults(defineProps<{
    * The label of the button
    */
   label: string,
-    /**
-   * size of the button
+  /**
+   * should button corners be rounded
    */
-   rounded?: boolean,
+  rounded?: boolean,
+  /**
+   * button with icon
+   */
+  iconName?: string,
   /**
    * size of the button
    */
