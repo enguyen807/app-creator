@@ -1,0 +1,21 @@
+@import '../../assets/main.css';
+
+.app-input {
+    @apply block w-full text-stone-500;
+}
+
+.app-input > div > input {
+    @apply mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black;
+}
+
+.app-input.app-input--error {
+    @apply text-red-500;
+}
+
+.app-input.app-input--error > div > input {
+    @apply border-red-200 focus:ring-0 focus:border-red-500 !important;
+}
+
+.app-input.app-input--togglePassword  input{
+    padding-right: calc(100px - 60px);
+}
